@@ -1,26 +1,27 @@
 package SkeletonJava;
-// import skeleton_java.Component.*;
-// import skeleton_java.ComponentFactory.*;
+import SkeletonJava.ComponentFactory.*;
+import SkeletonJava.Component.*;
+import java.util.*;
 
 public class Rocket implements Component.Visitor<Object> {
 
-    int componentNumber = 4;
-    Component[] components = new Component[this.componentNumber];
+    Map<String,Object> components = new HashMap<>();
 
-    @Override
-    public Object VisitNoseCone(Component.NoseCone nosecone) {
-        return this;
-    }
-    @Override
-    public Object VisitEngine(Component.Engine engine) {
-        return this;
-    }
+    @Override // visitor method for some functionality for nose cone
+    public Object VisitNoseCone(NoseCone nosecone) {System.out.println("from visitor in nose cone"); return this;}
+    @Override // visitor method for some functionality for engine
+    public Object VisitEngine(Engine engine) {System.out.println("from visitor in engine"); return this;}
 
 
     public static void main(String[] args) {
-        ComponentFactory noseConeFactory = new ComponentFactory.NoseConeFactory();
-        Component newNoseCone = noseConeFactory.createComponent();
+        Rocket rocket = new Rocket();
+        NoseConeFactory noseConeFactory = new NoseConeFactory();
+        NoseCone newNoseCone = noseConeFactory.createComponent("nosecone","newNoseCode",1.0,12.0);
+
+        rocket.components.put(newNoseCone.componentName,newNoseCone);
+        
         System.out.println(newNoseCone.toString());
+        newNoseCone.accept(rocket);
     }
 
 }

@@ -43,4 +43,6 @@ But the Object class does not know about what the inputs are at all - not the at
 - however, since components might have different behaviours or some kind of relevant method to calculate values, which may be needed to add on later, it makes sense to add a visitor pattern, so that new  methods can be added to components - but this is across the board, so every component that is a subclass of the abstract component class will need to implement some specific method
 - since classes can inherit from multiple interface, it might be worth it to implement both the visitor and the factory (abstract factory?)
 
+== Implementation Details
 
+- factory: for creating new types of objects of the component abstract class

@@ -2,13 +2,15 @@ package SkeletonJava;
 public abstract class Component {
     
     // individual component attributes
+    String componentName;
     String name;
-    float mass;
-    float volume;
+    double mass;
+    double volume;
 
 
     // component constructor - abstract, so should be calling super() in concrete classes
-    public Component(String name, float mass, float volume) {
+    public Component(String componentname, String name, double mass, double volume) {
+        this.componentName = componentname;
         this.name = name;
         this.mass = mass;
         this.volume = volume;
@@ -33,8 +35,8 @@ public abstract class Component {
     public static class NoseCone extends Component {
 
         // attributes and more logic probably imported from other component class files
-        public NoseCone(String name, float mass, float volume) {
-            super(name, mass, volume);
+        public NoseCone(String componentName, String name, double mass, double volume) {
+            super(componentName,name, mass, volume);
         }
 
         // example method
@@ -54,9 +56,12 @@ public abstract class Component {
     // Engine example component
     public static class Engine extends Component {
 
+        double horsepower;
+        
         // attributes and more logic probably imported from other component class files
-        public Engine(String name, float mass, float volume) {
-            super(name, mass, volume);
+        public Engine(String componentName, String name, double mass, double volume, double horsepower) {
+            super(componentName,name, mass, volume);
+            this.horsepower = horsepower;
         }
 
         // example method

@@ -2,23 +2,20 @@ package SkeletonJava;
 
 abstract public class ComponentFactory {
 
-    public abstract Component createComponent();
-
     public static class NoseConeFactory extends ComponentFactory {
         
-        @Override
-        public Component.NoseCone createComponent() {
-            return new Component.NoseCone(null,0,0);
+        public Component.NoseCone createComponent(String componentname, String name, double mass, double volume) {
+            return new Component.NoseCone(componentname,name,mass,volume);
         }
     }
 
     public static class EngineFactory extends ComponentFactory {
-        @Override
-        public Component createComponent() {
-            return new Component.Engine(null,0,0);
+
+        public Component createComponent(String componentname, String name, double mass, double volume, double horsepower) {
+            return new Component.Engine(componentname,name,mass,volume,horsepower);
         }
     }
 
-    // commented edits for new factory-update brench
+    // commented edits for new factory-update branch
 
 }
