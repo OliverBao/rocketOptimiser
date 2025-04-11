@@ -19,4 +19,6 @@ abstract public class ComponentFactory {
         }
     }
 
+    // commented edits for new factory-update branch
+
 }
