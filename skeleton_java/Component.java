@@ -4,15 +4,21 @@ public abstract class Component {
     
     // individual component attributes
     String componentName;
-    float weight;
+    float mass;
     float volume;
 
 
     // component constructor - abstract, so should be calling super() in concrete classes
-    public Component(String componentName, float weight, float volume) {
+    public Component(String componentName, float mass, float volume) {
         this.componentName = componentName;
-        this.weight = weight;
+        this.mass = mass;
         this.volume = volume;
+    }
+
+
+    // singular toString() method for testing
+    public String toString() {
+        return (this.componentName + " has mass " + this.mass + "KGs." );
     }
 
 
@@ -25,8 +31,8 @@ public abstract class Component {
     public static class NoseCone extends Component {
 
         // attributes and more logic probably imported from other component class files
-        public NoseCone(String componentName, float weight, float volume) {
-            super(componentName, weight, volume);
+        public NoseCone(String componentName, float mass, float volume) {
+            super(componentName, mass, volume);
         }
 
         // Visitor: sends data of NoseCone object to the interface, implemented by Rocket
