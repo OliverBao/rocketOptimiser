@@ -19,6 +19,6 @@ abstract public class ComponentFactory {
         }
     }
 
-    // commented edits for new factory-update branch
+    // commented edits for new factory-update brench
 
 }
